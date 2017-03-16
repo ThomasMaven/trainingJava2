@@ -3,8 +3,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="helloBean" class="HelloWorld">
+    <bean id="helloBean" class="repo.HelloWorld">
         <property name="name" value="Tomek" />
     </bean>
+
+    <bean id="service.MovieLister" class="service.MovieLister">
+        <property name="finder">
+            <ref local="MovieFinderForeign"/>
+        </property>
+    </bean>
+
+    <bean id="MovieFinderPL" class="repo.PolishMovieFinder"/>
+    <bean id="MovieFinderForeign" class="repo.ForeignMovieFinder"/>
+
 
 </beans>
