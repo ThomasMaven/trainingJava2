@@ -1,4 +1,4 @@
-package repo;
+package com.example.zadanie2.repo;
 
 import java.util.List;
 

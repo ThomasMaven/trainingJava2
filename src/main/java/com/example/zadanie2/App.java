@@ -1,7 +1,9 @@
+package com.example.zadanie2;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import repo.HelloWorld;
-import service.MovieLister;
+import com.example.zadanie2.repo.HelloWorld;
+import com.example.zadanie2.service.MovieLister;
 
 import java.util.List;
 
@@ -11,10 +13,10 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml");
-        HelloWorld helloWorld =  context.getBean("helloBean", HelloWorld.class);
+        HelloWorld helloWorld =  context.getBean("HelloWorld", HelloWorld.class);
         helloWorld.printHello();
 
-        MovieLister lister = context.getBean("service.MovieLister", MovieLister.class);
+        MovieLister lister = context.getBean("ListerOfMovies", MovieLister.class);
         List<String> movieList = lister.getMovieList();
 
         System.out.println("\n\nList of movies:");
