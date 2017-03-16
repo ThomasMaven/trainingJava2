@@ -11,10 +11,10 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml");
-        HelloWorld helloWorld = (HelloWorld) context.getBean("helloBean");
+        HelloWorld helloWorld =  context.getBean("helloBean", HelloWorld.class);
         helloWorld.printHello();
 
-        MovieLister lister = (MovieLister) context.getBean("service.MovieLister");
+        MovieLister lister = context.getBean("service.MovieLister", MovieLister.class);
         List<String> movieList = lister.getMovieList();
 
         System.out.println("\n\nList of movies:");
