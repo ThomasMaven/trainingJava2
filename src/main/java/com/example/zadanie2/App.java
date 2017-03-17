@@ -24,5 +24,6 @@ public class App {
         for (String movieTitle: movieList){
             System.out.println(movieTitle);
         }
+
     }
 }

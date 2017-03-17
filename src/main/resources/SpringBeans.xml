@@ -1,20 +1,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="helloBean" class="repo.HelloWorld">
+    <context:component-scan base-package="com.example.zadanie2" />
+
+    <bean id="HelloWorld" class="com.example.zadanie2.repo.HelloWorld" init-method="initHelloWorld" destroy-method="destroyHelloWorld">
         <property name="name" value="Tomek" />
     </bean>
-
-    <bean id="service.MovieLister" class="service.MovieLister">
-        <property name="finder">
-            <ref local="MovieFinderForeign"/>
-        </property>
-    </bean>
-
-    <bean id="MovieFinderPL" class="repo.PolishMovieFinder"/>
-    <bean id="MovieFinderForeign" class="repo.ForeignMovieFinder"/>
-
+    <bean id = "Finder" class = "com.example.zadanie2.repo.PolishMovieFinder"/>
 
 </beans>
